@@ -1,5 +1,6 @@
 <Solution>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
+    <File Path="MovieTicketOnlineBookingSystemApi.sql" />
     <Project Path="MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
     <Project Path="MovieTicketOnlineBookingSystem.Database/MovieTicketOnlineBookingSystem.Database.csproj" />
   </Folder>
