@@ -1,6 +1,6 @@
-@MovieTicketOnlineBookingSystemApi_HostAddress = http://localhost:5015
+@MovieTicketOnlineBookingSystem_Api_HostAddress = http://localhost:5015
 
-GET {{MovieTicketOnlineBookingSystemApi_HostAddress}}/weatherforecast/
+GET {{MovieTicketOnlineBookingSystem_Api_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="MovieTicketOnlineBookingSystemApi/MovieTicketOnlineBookingSystemApi.csproj" />
+  <Folder Name="/MovieTicketOnlineBookingSystem/">
+    <Project Path="MovieTicketOnlineBookingSystem.Database/MovieTicketOnlineBookingSystem.Database.csproj" />
+    <Project Path="MovieTicketOnlineBookingSystemApi/MovieTicketOnlineBookingSystem.Api.csproj" />
+  </Folder>
 </Solution>
