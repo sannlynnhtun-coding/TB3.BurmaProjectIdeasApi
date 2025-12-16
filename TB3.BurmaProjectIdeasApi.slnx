@@ -1,7 +1,11 @@
 <Solution>
+  <Folder Name="/Bird/">
+    <Project Path="Bird\Bird.Api\Bird.Api.csproj" Type="Classic C#" />
+    <Project Path="Bird\Bird.Database\Bird.Database.csproj" Type="Classic C#" />
+  </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
-    <File Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystemApi.sql" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Database/MovieTicketOnlineBookingSystem.Database.csproj" />
+    <File Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystemApi.sql" />
   </Folder>
 </Solution>
