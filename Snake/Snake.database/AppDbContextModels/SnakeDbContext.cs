@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Snake.database.AppDbContextModels;
+namespace Snake.Database.AppDbContextModels;
 
 public partial class SnakeDbContext : DbContext
 {

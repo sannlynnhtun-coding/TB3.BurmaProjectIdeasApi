@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Snake.database\Snake.database.csproj" />
+    <ProjectReference Include="..\Snake.database\Snake.Database.csproj" />
   </ItemGroup>
 
 </Project>

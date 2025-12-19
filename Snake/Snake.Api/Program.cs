@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Snake.Api.Services;
-using Snake.database.AppDbContextModels;
+using Snake.Database.AppDbContextModels;
 
 var builder = WebApplication.CreateBuilder(args);
 

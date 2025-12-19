@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Snake.database.AppDbContextModels;
+namespace Snake.Database.AppDbContextModels;
 
 public partial class TblSnake
 {

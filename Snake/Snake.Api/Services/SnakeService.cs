@@ -1,5 +1,5 @@
 ﻿using Snake.Api.Dtos;
-using Snake.database.AppDbContextModels;
+using Snake.Database.AppDbContextModels;
 using static Snake.Api.Enums.Enum;
 
 namespace Snake.Api.Services;
