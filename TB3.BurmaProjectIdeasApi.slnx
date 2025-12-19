@@ -4,4 +4,8 @@
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Database/MovieTicketOnlineBookingSystem.Database.csproj" />
   </Folder>
+  <Folder Name="/Snake/">
+    <Project Path="Snake.Api/Snake.Api.csproj" Id="1302f22c-874d-4788-9b72-db5e33b6aeca" />
+    <Project Path="Snake.database/Snake.database.csproj" Id="e6a452a2-2ad4-49ff-938c-51496839ad55" />
+  </Folder>
 </Solution>
