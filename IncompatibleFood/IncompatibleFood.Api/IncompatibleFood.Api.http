@@ -1,0 +1,6 @@
+@IncompatibleFood.Api_HostAddress = http://localhost:5208
+
+GET {{IncompatibleFood.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

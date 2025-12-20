@@ -4,7 +4,11 @@
     <Project Path="BurmeseRecipes/BurmeseRecipes.Api/BurmeseRecipes.Api.csproj" />
     <Project Path="BurmeseRecipes/BurmeseRecipes.Database/BurmeseRecipes.Database.csproj" />
   </Folder>
-  <Folder Name="/IncompatibleFood/" />
+  <Folder Name="/IncompatibleFood/">
+    <File Path="IncompatibleFoodApi.sql" />
+    <Project Path="IncompatibleFood/IncompatibleFood.Api/IncompatibleFood.Api.csproj" Id="920910a5-91e3-468c-b5dc-2a3a54c06aaf" />
+    <Project Path="IncompatibleFood/IncompatibleFood.Database/IncompatibleFood.Database.csproj" Id="c91a7b61-a17c-4b24-bafa-b3bb83de7417" />
+  </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <File Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystemApi.sql" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
