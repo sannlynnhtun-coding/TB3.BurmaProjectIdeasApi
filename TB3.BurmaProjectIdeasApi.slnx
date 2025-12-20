@@ -2,6 +2,7 @@
   <Folder Name="/Bird/">
     <Project Path="Bird\Bird.Api\Bird.Api.csproj" Type="Classic C#" />
     <Project Path="Bird\Bird.Database\Bird.Database.csproj" Type="Classic C#" />
+    <File Path="Bird\Bird.sql" />
   </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
