@@ -1,4 +1,6 @@
-﻿namespace BurmeseAgriculture.Api.Services
+﻿using BurmeseAgriculture.Api.Dtos;
+
+namespace BurmeseAgriculture.Api.Services
 {
     public interface IBurmeseAgricultureService
     {
