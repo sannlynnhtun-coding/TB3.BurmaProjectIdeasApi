@@ -1,9 +1,15 @@
 <Solution>
   <Folder Name="/Bird/">
-    <Project Path="Bird\Bird.Api\Bird.Api.csproj" Type="Classic C#" />
-    <Project Path="Bird\Bird.Database\Bird.Database.csproj" Type="Classic C#" />
     <File Path="Bird\Bird.sql" />
+    <Project Path="Bird\Bird.Api\Bird.Api.csproj" />
+    <Project Path="Bird\Bird.Database\Bird.Database.csproj" />
+  </Folder>
   <Folder Name="/BurmaCalendar/" />
+  <Folder Name="/BurmeseAgriculture/">
+    <File Path="../BurmeseAgriculture.sql" />
+    <Project Path="BurmeseAgriculture/BurmeseAgriculture.Api/BurmeseAgriculture.Api.csproj" Id="5848f4c1-0f45-48ad-a0f9-3f4d6b9663a5" />
+    <Project Path="BurmeseAgriculture/BurmeseAgriculture.Database/BurmeseAgriculture.Database.csproj" Id="dbd325ee-732e-4327-9e8f-3d23d6eacc83" />
+  </Folder>
   <Folder Name="/BurmeseRecipes/">
     <Project Path="BurmeseRecipes/BurmeseRecipes.Api/BurmeseRecipes.Api.csproj" />
     <Project Path="BurmeseRecipes/BurmeseRecipes.Database/BurmeseRecipes.Database.csproj" />
@@ -14,12 +20,10 @@
     <Project Path="IncompatibleFood/IncompatibleFood.Database/IncompatibleFood.Database.csproj" Id="c91a7b61-a17c-4b24-bafa-b3bb83de7417" />
   </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
+    <File Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystemApi.sql" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Database/MovieTicketOnlineBookingSystem.Database.csproj" />
-    <File Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystemApi.sql" />
   </Folder>
-
-</Solution>
   <Folder Name="/Snake/">
     <Project Path="Snake/Snake.Api/Snake.Api.csproj" />
     <Project Path="Snake/Snake.database/Snake.Database.csproj" />
