@@ -1,4 +1,3 @@
-﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Snake.Api.Dtos;
 using Snake.Api.Services;
@@ -25,54 +24,40 @@ public class SnakeController : ControllerBase
         {
             return Ok(result.Snakes);
         }
-        
-         return BadRequest(result.Message);           
+
+        return BadRequest(result.Message);
     }
 
     [HttpGet("{id}")]
     public IActionResult GetSnakeById(int id)
     {
         SnakeResponseDto result = _snakeService.GetSnakeById(id);
-        if(result.Type == EnumResultType.Success)
+        if (result.Type == EnumResultType.Success)
         {
             return Ok(result.Snake);
         }
+
         return NotFound(result.Message);
     }
 
     [HttpPost]
     public IActionResult CreateSnake(SnakeRequestDto requestDto)
     {
-        SnakeResponseDto result = _snakeService.CreateSnake(requestDto);
-        if (result.Type == EnumResultType.Success)
-        {
-            return Ok(result.Snake);
-        }
-        if (result.Type == EnumResultType.ValidationError)
-        {
-            return BadRequest(result.Message);
-        }
-     
-        return StatusCode(500, result.Message);      
+        return ReadOnly();
     }
 
     [HttpPatch("{id}")]
     public IActionResult UpdateSnake(int id, SnakeRequestDto requestDto)
     {
-        SnakeResponseDto result = _snakeService.UpdateSnake(id, requestDto);
-        if (result.Type == EnumResultType.NotFound)
-        {
-            return NotFound(result.Message);
-        }
-        if (result.Type == EnumResultType.Success)
-        {
-            return Ok(result.Snake);
-        }
-        if (result.Type == EnumResultType.ValidationError)
-        {
-            return BadRequest(result.Message);
-        }
+        return ReadOnly();
+    }
 
-        return StatusCode(500, result.Message);
+    private ObjectResult ReadOnly()
+    {
+        return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+        {
+            IsSuccess = false,
+            Message = "Read-only JSON data source."
+        });
     }
 }

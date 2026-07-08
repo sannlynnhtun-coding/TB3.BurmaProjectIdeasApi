@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using Snake.Api.Services;
-using Snake.Database.AppDbContextModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ISnakeService, SnakeService>();
-builder.Services.AddDbContext<SnakeDbContext>(opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-});
 
 var app = builder.Build();
 
