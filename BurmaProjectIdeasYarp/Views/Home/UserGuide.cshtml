@@ -14,8 +14,8 @@
             <p>Welcome to your new YARP Gateway management system. This application allows you to dynamically configure routing rules and backend clusters without restarting the service.</p>
             <div class="grid gap-4 md:grid-cols-2">
                 <div class="space-y-2">
-                    <h3 class="font-medium">LiteDB Storage</h3>
-                    <p class="text-sm text-muted-foreground">All configurations are stored in <code>yarp_config.db</code>. This ensures high performance and persistence.</p>
+                    <h3 class="font-medium">JSON Storage</h3>
+                    <p class="text-sm text-muted-foreground">Enabled route files are loaded from <code>api-settings.json</code>. UI-created routes and clusters are saved to <code>api-custom-routes.json</code>.</p>
                 </div>
                 <div class="space-y-2">
                     <h3 class="font-medium">Dynamic Reload</h3>
@@ -67,14 +67,14 @@
     </section>
 
     <section class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight text-primary italic">Seeding Data</h2>
+        <h2 class="text-2xl font-semibold tracking-tight text-primary italic">Configuration Files</h2>
         <div class="p-6 rounded-xl border border-dashed border-border flex flex-col items-center gap-4 text-center">
             <div class="bg-muted p-4 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
             </div>
             <div class="space-y-2">
-                <h3 class="font-semibold">Automatic Import</h3>
-                <p class="text-sm text-muted-foreground max-w-sm">The system automatically imports existing JSON configurations from <code>api-*-routes.json</code> files if they are enabled in <code>api-settings.json</code> and not already in the database.</p>
+                <h3 class="font-semibold">JSON Merge</h3>
+                <p class="text-sm text-muted-foreground max-w-sm">The system reads enabled <code>api-*-routes.json</code> files and always includes <code>api-custom-routes.json</code> when it exists.</p>
             </div>
         </div>
     </section>

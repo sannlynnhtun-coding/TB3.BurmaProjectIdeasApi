@@ -1,10 +1,7 @@
-using LiteDB;
-
 namespace BurmaProjectIdeasYarp.Models
 {
     public class YarpRoute
     {
-        [BsonId]
         public string RouteId { get; set; } = string.Empty;
         public string ClusterId { get; set; } = string.Empty;
         public string MatchPath { get; set; } = string.Empty;

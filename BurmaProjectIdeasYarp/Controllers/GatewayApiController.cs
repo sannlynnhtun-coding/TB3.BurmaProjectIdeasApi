@@ -12,6 +12,7 @@ namespace BurmaProjectIdeasYarp.Controllers
         private readonly IProxyConfigProvider _configProvider;
         private readonly IConfiguration _configuration;
         private readonly YarpConfigService _configService;
+        private readonly IWebHostEnvironment _env;
 
         private static readonly Dictionary<string, string> ApiConfigMap = new()
         {
@@ -21,11 +22,16 @@ namespace BurmaProjectIdeasYarp.Controllers
             { "snake", "api-snake-routes.json" }
         };
 
-        public GatewayApiController(IProxyConfigProvider configProvider, IConfiguration configuration, YarpConfigService configService)
+        public GatewayApiController(
+            IProxyConfigProvider configProvider,
+            IConfiguration configuration,
+            YarpConfigService configService,
+            IWebHostEnvironment env)
         {
             _configProvider = configProvider;
             _configuration = configuration;
             _configService = configService;
+            _env = env;
         }
 
         [HttpGet("config")]
@@ -83,7 +89,7 @@ namespace BurmaProjectIdeasYarp.Controllers
                 apiName = ToTitleCase(kvp.Key),
                 configFile = kvp.Value,
                 enabled = enabledApis.TryGetValue(kvp.Key, out var enabled) && enabled,
-                fileExists = System.IO.File.Exists(kvp.Value)
+                fileExists = System.IO.File.Exists(GetConfigPath(kvp.Value))
             }).ToList();
 
             return Ok(new
@@ -103,14 +109,15 @@ namespace BurmaProjectIdeasYarp.Controllers
                 return NotFound(new { message = $"API key '{apiKey}' not found" });
             }
 
-            if (!System.IO.File.Exists(configFile))
+            var configPath = GetConfigPath(configFile);
+            if (!System.IO.File.Exists(configPath))
             {
                 return NotFound(new { message = $"Configuration file '{configFile}' not found" });
             }
 
             try
             {
-                var json = System.IO.File.ReadAllText(configFile);
+                var json = System.IO.File.ReadAllText(configPath);
                 var config = JsonSerializer.Deserialize<JsonElement>(json);
 
                 return Ok(new
@@ -177,6 +184,11 @@ namespace BurmaProjectIdeasYarp.Controllers
             if (string.IsNullOrEmpty(str)) return str;
             return string.Join(" ", str.Split('_')
                 .Select(word => char.ToUpper(word[0]) + word.Substring(1).ToLower()));
+        }
+
+        private string GetConfigPath(string fileName)
+        {
+            return Path.Combine(_env.ContentRootPath, fileName);
         }
     }
 }

@@ -1,10 +1,9 @@
 using BurmaProjectIdeasYarp.Services;
 using BurmaProjectIdeasYarp;
-using LiteDB;
-using Microsoft.Extensions.Configuration;
 using Yarp.ReverseProxy.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Configuration.AddJsonFile("api-settings.json", optional: true, reloadOnChange: false);
 
 // Add MVC services
 builder.Services.AddControllersWithViews();
@@ -21,11 +20,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Configure LiteDB
-var dbPath = Path.Combine(builder.Environment.ContentRootPath, "yarp_config.db");
-builder.Services.AddSingleton<ILiteDatabase>(_ => new LiteDatabase(dbPath));
 builder.Services.AddSingleton<YarpConfigService>();
-builder.Services.AddSingleton<MigrationService>();
 
 // Custom proxy config provider that uses DynamicProxyConfigProvider
 builder.Services.AddSingleton<IProxyConfigProvider, DynamicProxyConfigProvider>();
@@ -34,13 +29,6 @@ builder.Services.AddSingleton<IProxyConfigProvider, DynamicProxyConfigProvider>(
 builder.Services.AddReverseProxy();
 
 var app = builder.Build();
-
-// Run migration
-using (var scope = app.Services.CreateScope())
-{
-    var migrationService = scope.ServiceProvider.GetRequiredService<MigrationService>();
-    await migrationService.MigrateAsync();
-}
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

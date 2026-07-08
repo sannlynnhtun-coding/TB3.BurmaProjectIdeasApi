@@ -29,12 +29,14 @@ namespace BurmaProjectIdeasYarp
             {
                 var (routes, clusters) = _configService.GetYarpConfig();
 
-                // Cancel previous token and create new one
                 var oldCts = _changeTokenSource;
-                _changeTokenSource = new CancellationTokenSource();
-                oldCts?.Cancel();
-                
-                _config = new MemoryConfig(routes, clusters, _changeTokenSource.Token);
+                var newCts = new CancellationTokenSource();
+
+                _changeTokenSource = newCts;
+                _config = new MemoryConfig(routes, clusters, newCts.Token);
+
+                oldCts.Cancel();
+                oldCts.Dispose();
             }
         }
     }
