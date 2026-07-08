@@ -1,6 +1,4 @@
 using BurmeseRecipes.Api.Services;
-using BurmeseRecipes.Database.BurmeseRecipeDbContextModels;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,11 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IBurmeseRecipeService, BurmeseRecipeService>();
-
-builder.Services.AddDbContext<BurmeseRecipeDbContext>(
-    opt => {
-        opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")!);
-        });
 
 var app = builder.Build();
 

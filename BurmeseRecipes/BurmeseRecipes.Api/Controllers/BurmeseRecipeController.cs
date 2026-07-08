@@ -1,7 +1,5 @@
-﻿using Azure.Core;
 using BurmeseRecipes.Api.Dtos;
 using BurmeseRecipes.Api.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BurmeseRecipes.Api.Controllers
@@ -25,8 +23,10 @@ namespace BurmeseRecipes.Api.Controllers
             {
                 return BadRequest(result);
             }
+
             return Ok(result);
         }
+
         [HttpGet("{id}")]
         public IActionResult GetRecipeById(int id)
         {
@@ -35,47 +35,41 @@ namespace BurmeseRecipes.Api.Controllers
             {
                 return BadRequest(result);
             }
+
             return Ok(result);
         }
-        [HttpPost()]
-        public IActionResult CreateRecipe(RecipeRequestDto request)
+
+        [HttpPost]
+        public IActionResult CreateRecipe()
         {
-            var result = _burmeseRecipeService.CreateRecipe(request);
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+            return ReadOnly();
         }
+
         [HttpPut("{id}")]
-        public IActionResult UpdateRecipe(int id, RecipeRequestDto request)
+        public IActionResult UpdateRecipe(int id)
         {
-            var result = _burmeseRecipeService.UpdateRecipe(id,request);
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+            return ReadOnly();
         }
+
         [HttpPatch("{id}")]
-        public IActionResult PatchRecipe(int id, RecipePatchRequestDto request)
+        public IActionResult PatchRecipe(int id)
         {
-            var result = _burmeseRecipeService.PatchRecipe(id, request);
-            if (!result.IsSuccess)
-            {
-                return BadRequest(result);
-            }
-            return Ok(result);
+            return ReadOnly();
         }
+
         [HttpDelete("{id}")]
         public IActionResult DeleteRecipe(int id)
         {
-            var result = _burmeseRecipeService.DeleteRecipe(id);
-            if (!result.IsSuccess)
+            return ReadOnly();
+        }
+
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
             {
-                return BadRequest(result);
-            }
-            return Ok(result);
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }
