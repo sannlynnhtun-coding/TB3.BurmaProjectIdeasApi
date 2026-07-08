@@ -21,55 +21,51 @@ namespace Bird.Api.Controllers
             var result = _birdService.GetBirds(pageNo, pageSize, search);
             if (!result.IsSuccess)
                 return BadRequest(result);
-            
+
             return Ok(result);
         }
 
         [HttpGet("{id}")]
         public IActionResult GetBird(int id)
         {
-            var result = _birdService.GetBird(id);  
+            var result = _birdService.GetBird(id);
             if (!result.IsSuccess)
                 return BadRequest(result);
-            
+
             return Ok(result);
         }
 
         [HttpPost]
-        public IActionResult PostBird(BirdCreateRequestDto request)
+        public IActionResult PostBird()
         {
-            var result = _birdService.CreateBird(request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-            
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPatch]
-        public IActionResult PatchBird(int id, BirdUpdateRequestDto request)
+        public IActionResult PatchBird()
         {
-            var result = _birdService.UpdateBird(id, request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-            
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBird(int id)
         {
-            var result = _birdService.DeleteBird(id);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-            
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPost("Seed")]
         public IActionResult SeedBird()
         {
-            var result = _birdService.SeedBird();
-            return Ok(result);
+            return ReadOnly();
+        }
+
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }

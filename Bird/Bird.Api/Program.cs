@@ -1,15 +1,8 @@
 using Bird.Api.Services;
-using Bird.Database.BirdDbContextModels;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<BirdDbContext>(opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
-});
-
 builder.Services.AddScoped<IBirdService, BirdService>();
 
 builder.Services.AddControllers();
