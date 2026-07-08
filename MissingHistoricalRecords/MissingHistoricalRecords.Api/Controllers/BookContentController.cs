@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using MissingHistoricalRecords.Api.Services;
 using static MissingHistoricalRecords.Api.RequestDTOs.BookContentRequestDto;
-using static MissingHistoricalRecords.Api.ResponseDTOs.BookContentResponseDto;
 
 namespace MissingHistoricalRecords.Api.Controllers
 {
@@ -37,53 +36,36 @@ namespace MissingHistoricalRecords.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateContent(BookContentCreateRequestDto request)
+        public IActionResult CreateContent()
         {
-            var result = _bookContentService.CreateContent(request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPut("{bookId}/{pageNo}")]
-        public IActionResult UpdateContent(
-            int bookId,
-            int pageNo,
-            BookContentUpdateRequestDto request)
+        public IActionResult UpdateContent(int bookId, int pageNo)
         {
-            var result = _bookContentService.UpdateContent(bookId, pageNo, request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPatch("{bookId}/{pageNo}")]
-        public IActionResult PatchContent(
-            int bookId,
-            int pageNo,
-            BookContentPatchRequestDto request)
+        public IActionResult PatchContent(int bookId, int pageNo)
         {
-            BookContentResultResponseDto result =
-                _bookContentService.PatchContent(bookId, pageNo, request);
-
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpDelete("{bookId}/{pageNo}")]
         public IActionResult DeleteContent(int bookId, int pageNo)
         {
-            BookContentResultResponseDto result =
-                _bookContentService.DeleteContent(bookId, pageNo);
+            return ReadOnly();
+        }
 
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }

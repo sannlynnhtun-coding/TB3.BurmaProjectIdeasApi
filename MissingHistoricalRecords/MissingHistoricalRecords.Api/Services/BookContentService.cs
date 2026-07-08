@@ -1,4 +1,4 @@
-﻿using MissingHistoricalRecords.Database.AppDbContextModels;
+using System.Text.Json;
 using static MissingHistoricalRecords.Api.RequestDTOs.BookContentRequestDto;
 using static MissingHistoricalRecords.Api.ResponseDTOs.BookContentResponseDto;
 
@@ -6,234 +6,82 @@ namespace MissingHistoricalRecords.Api.Services
 {
     public class BookContentService : IBookContentService
     {
-        private readonly MissingHistoricalRecordsDbContext _db;
-
-        public BookContentService(MissingHistoricalRecordsDbContext db)
+        private static readonly JsonSerializerOptions JsonOptions = new()
         {
-            _db = db;
+            PropertyNameCaseInsensitive = true
+        };
+
+        private readonly List<BookContentDto> _contents;
+
+        public BookContentService(IWebHostEnvironment env)
+        {
+            var dataPath = Path.Combine(env.ContentRootPath, "Data", "missing-historical-records");
+            _contents = Directory
+                .EnumerateFiles(dataPath, "*.json")
+                .Where(x => !string.Equals(Path.GetFileName(x), "books.json", StringComparison.OrdinalIgnoreCase))
+                .SelectMany(ReadContents)
+                .ToList();
         }
 
         public BookContentGetListResponseDto GetContentsByBookID(int bookId)
         {
-            BookContentGetListResponseDto dto = new();
-
-            var lst = _db.TblContents
-                .Where(x => x.DeleteFlag == false && x.BookId == bookId)
+            var contents = _contents
+                .Where(x => x.BookId == bookId)
                 .OrderBy(x => x.PageNo)
                 .ToList();
 
-            var contents = lst.Select(x => new BookContentDto
+            return new BookContentGetListResponseDto
             {
-                BookId = x.BookId,
-                PageNo = x.PageNo,
-                BookContent = x.BookContent
-            }).ToList();
-
-            dto.IsSuccess = true;
-            dto.Message = "Success.";
-            dto.Contents = contents;
-
-            return dto;
+                IsSuccess = true,
+                Message = "Success.",
+                Contents = contents
+            };
         }
 
         public BookContentGetByIdResponseDto GetSingleContent(int bookId, int pageNo)
         {
-            BookContentGetByIdResponseDto dto = new();
-
-            var item = _db.TblContents
-                .Where(x => x.DeleteFlag == false)
-                .FirstOrDefault(x => x.BookId == bookId && x.PageNo == pageNo);
-
+            var item = _contents.FirstOrDefault(x => x.BookId == bookId && x.PageNo == pageNo);
             if (item is null)
             {
-                dto.IsSuccess = false;
-                dto.Message = "Content not found.";
-                return dto;
+                return new BookContentGetByIdResponseDto
+                {
+                    IsSuccess = false,
+                    Message = "Content not found."
+                };
             }
 
-            dto.IsSuccess = true;
-            dto.Message = "Content retrieved successfully.";
-            dto.Content = new BookContentDto
+            return new BookContentGetByIdResponseDto
             {
-                BookId = item.BookId,
-                PageNo = item.PageNo,
-                BookContent = item.BookContent
-            };
-
-            return dto;
-        }
-
-        public BookContentResultResponseDto CreateContent(BookContentCreateRequestDto requestDto)
-        {
-            bool isSuccess = false;
-            string message = string.Empty;
-
-            if (requestDto.BookId <= 0)
-            {
-                message = "Invalid Book Id.";
-                goto Response;
-            }
-
-            if (requestDto.PageNo <= 0)
-            {
-                message = "Invalid Page No.";
-                goto Response;
-            }
-
-            if (string.IsNullOrEmpty(requestDto.BookContent))
-            {
-                message = "Content cannot be empty.";
-                goto Response;
-            }
-
-            var item = _db.TblContents
-                .Where(x => x.DeleteFlag == false)
-                .FirstOrDefault(x => x.BookId == requestDto.BookId && x.PageNo == requestDto.PageNo);
-
-            if(item is not null)
-            {
-                message = "Content for the given Book Id and Page No already exists.";
-                goto Response;
-            }
-
-            _db.TblContents.Add(new TblContent
-            {
-                BookId = requestDto.BookId,
-                PageNo = requestDto.PageNo,
-                BookContent = requestDto.BookContent,
-                DeleteFlag = false
-            });
-
-            int result = _db.SaveChanges();
-
-            message = "Saving Failed.";
-            if (result > 0)
-            {
-                isSuccess = true;
-                message = "Saving Successful.";
-            }
-
-        Response:
-            return new BookContentResultResponseDto
-            {
-                IsSuccess = isSuccess,
-                Message = message
+                IsSuccess = true,
+                Message = "Content retrieved successfully.",
+                Content = item
             };
         }
+
+        public BookContentResultResponseDto CreateContent(BookContentCreateRequestDto requestDto) => ReadOnly();
 
         public BookContentResultResponseDto UpdateContent(
             int bookId,
             int pageNo,
-            BookContentUpdateRequestDto requestDto)
-        {
-            bool isSuccess = false;
-            string message = string.Empty;
-
-            if (string.IsNullOrEmpty(requestDto.BookContent))
-            {
-                message = "Content cannot be empty.";
-                goto Response;
-            }
-
-            var item = _db.TblContents
-                .Where(x => x.DeleteFlag == false)
-                .FirstOrDefault(x => x.BookId == bookId && x.PageNo == pageNo);
-
-            if (item is null)
-            {
-                message = "Content not found.";
-                goto Response;
-            }
-
-            item.BookContent = requestDto.BookContent;
-
-            int result = _db.SaveChanges();
-
-            message = "Updating Failed.";
-            if (result > 0)
-            {
-                isSuccess = true;
-                message = "Updating Successful.";
-            }
-
-        Response:
-            return new BookContentResultResponseDto
-            {
-                IsSuccess = isSuccess,
-                Message = message
-            };
-        }
+            BookContentUpdateRequestDto requestDto) => ReadOnly();
 
         public BookContentResultResponseDto PatchContent(
             int bookId,
             int pageNo,
-            BookContentPatchRequestDto requestDto)
+            BookContentPatchRequestDto requestDto) => ReadOnly();
+
+        public BookContentResultResponseDto DeleteContent(int bookId, int pageNo) => ReadOnly();
+
+        private static IEnumerable<BookContentDto> ReadContents(string filePath)
         {
-            bool isSuccess = false;
-            string message = string.Empty;
-
-            if (string.IsNullOrEmpty(requestDto.BookContent))
-            {
-                message = "No data to update.";
-                goto Response;
-            }
-
-            var item = _db.TblContents
-                .Where(x => x.DeleteFlag == false)
-                .FirstOrDefault(x => x.BookId == bookId && x.PageNo == pageNo);
-
-            if (item is null)
-            {
-                message = "Content not found.";
-                goto Response;
-            }
-
-            item.BookContent = requestDto.BookContent;
-
-            int result = _db.SaveChanges();
-
-            message = "Patching Failed.";
-            if (result > 0)
-            {
-                isSuccess = true;
-                message = "Patching Successful.";
-            }
-
-        Response:
-            return new BookContentResultResponseDto
-            {
-                IsSuccess = isSuccess,
-                Message = message
-            };
+            var json = File.ReadAllText(filePath);
+            return JsonSerializer.Deserialize<List<BookContentDto>>(json, JsonOptions) ?? new List<BookContentDto>();
         }
 
-        public BookContentResultResponseDto DeleteContent(int bookId, int pageNo)
+        private static BookContentResultResponseDto ReadOnly() => new()
         {
-            BookContentResultResponseDto dto = new();
-
-            var item = _db.TblContents
-                .Where(x => x.DeleteFlag == false)
-                .FirstOrDefault(x => x.BookId == bookId && x.PageNo == pageNo);
-
-            if (item is null)
-            {
-                dto.Message = "Content not found.";
-                return dto;
-            }
-
-            item.DeleteFlag = true;
-
-            int result = _db.SaveChanges();
-
-            if (result < 1)
-            {
-                dto.Message = "Deleting Failed.";
-                return dto;
-            }
-
-            dto.IsSuccess = true;
-            dto.Message = "Deleting Successful.";
-            return dto;
-        }
+            IsSuccess = false,
+            Message = "Read-only JSON data source."
+        };
     }
 }

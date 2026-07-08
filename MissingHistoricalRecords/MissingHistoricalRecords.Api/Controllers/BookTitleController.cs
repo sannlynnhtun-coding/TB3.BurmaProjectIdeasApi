@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using MissingHistoricalRecords.Api.Services;
-using static MissingHistoricalRecords.Api.DAOs.BookResponseDto;
 using static MissingHistoricalRecords.Api.DTOs.BookRequestDto;
 
 namespace MissingHistoricalRecords.Api.Controllers
@@ -37,44 +36,36 @@ namespace MissingHistoricalRecords.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateBook(BookCreateRequestDto request)
+        public IActionResult CreateBook()
         {
-            var result = _bookService.CreateBook(request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateBook(int id, BookUpdateRequestDto request)
+        public IActionResult UpdateBook(int id)
         {
-            var result = _bookService.UpdateBook(id, request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPatch("{id}")]
-        public IActionResult PatchBook(int id, BookPatchRequestDto request)
+        public IActionResult PatchBook(int id)
         {
-            BookResultResponseDto result = _bookService.PatchBook(id, request);
-
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteBook(int id)
         {
-            BookResultResponseDto result = _bookService.DeleteBook(id);
-            if (!result.IsSuccess)
-                return BadRequest(result);
+            return ReadOnly();
+        }
 
-            return Ok(result);
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }
