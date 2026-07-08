@@ -1,5 +1,4 @@
 using MovieTicketOnlineBookingSystem.Api.Dtos;
-using MovieTicketOnlineBookingSystem.Database.AppDbContextModels;
 
 namespace MovieTicketOnlineBookingSystem.Api.Services
 {

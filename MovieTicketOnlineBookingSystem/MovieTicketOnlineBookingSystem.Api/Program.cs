@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using MovieTicketOnlineBookingSystem.Database.AppDbContextModels;
 using MovieTicketOnlineBookingSystem.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,11 +8,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register EF Core Context
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 // Register Services
+builder.Services.AddSingleton<MovieTicketDataStore>();
 builder.Services.AddScoped<IMovieBookingService, MovieBookingService>();
 builder.Services.AddScoped<ICrudService, CrudService>();
 
@@ -32,22 +27,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-// Seed database on startup
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<AppDbContext>();
-        var seeder = new DatabaseSeeder(context);
-        await seeder.SeedAsync();
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred while seeding the database.");
-    }
-}
 
 app.Run();

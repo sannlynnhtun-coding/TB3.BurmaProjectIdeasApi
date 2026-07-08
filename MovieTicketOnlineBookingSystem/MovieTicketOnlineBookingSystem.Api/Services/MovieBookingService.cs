@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using MovieTicketOnlineBookingSystem.Database.AppDbContextModels;
 using MovieTicketOnlineBookingSystem.Api.Dtos;
+using MovieTicketOnlineBookingSystem.Api.Models;
 
 namespace MovieTicketOnlineBookingSystem.Api.Services
 {
@@ -15,250 +14,147 @@ namespace MovieTicketOnlineBookingSystem.Api.Services
 
     public class MovieBookingService : IMovieBookingService
     {
-        private readonly AppDbContext _context;
+        private readonly MovieTicketData _data;
 
-        public MovieBookingService(AppDbContext context)
+        public MovieBookingService(MovieTicketDataStore dataStore)
         {
-            _context = context;
+            _data = dataStore.Data;
         }
 
-        public async Task<MovieListResponseDto> GetMoviesAsync(MovieListRequestDto request)
+        public Task<MovieListResponseDto> GetMoviesAsync(MovieListRequestDto request)
         {
-            try
+            var result = Page(_data.Movies, request.PageNo, request.PageSize);
+            return Task.FromResult(new MovieListResponseDto
             {
-                var query = _context.TblMovieLists.AsQueryable();
-                var totalCount = await query.CountAsync();
-
-                var movies = await query
-                    .Skip((request.PageNo - 1) * request.PageSize)
-                    .Take(request.PageSize)
-                    .ToListAsync();
-
-                var totalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize);
-
-                return new MovieListResponseDto
-                {
-                    IsSuccess = true,
-                    Message = "Movies retrieved successfully",
-                    Movies = movies,
-                    TotalCount = totalCount,
-                    PageNo = request.PageNo,
-                    PageSize = request.PageSize,
-                    TotalPages = totalPages
-                };
-            }
-            catch (Exception ex)
-            {
-                return new MovieListResponseDto
-                {
-                    IsSuccess = false,
-                    Message = $"Error retrieving movies: {ex.Message}",
-                    Movies = new List<TblMovieList>()
-                };
-            }
+                IsSuccess = true,
+                Message = "Movies retrieved successfully",
+                Movies = result.Items,
+                TotalCount = result.TotalCount,
+                PageNo = result.PageNo,
+                PageSize = result.PageSize,
+                TotalPages = result.TotalPages
+            });
         }
 
-        public async Task<CinemaListResponseDto> GetCinemasAsync(CinemaListRequestDto request)
+        public Task<CinemaListResponseDto> GetCinemasAsync(CinemaListRequestDto request)
         {
-            try
+            var result = Page(_data.Cinemas, request.PageNo, request.PageSize);
+            return Task.FromResult(new CinemaListResponseDto
             {
-                var query = _context.TblCinemaLists.AsQueryable();
-                var totalCount = await query.CountAsync();
-
-                var cinemas = await query
-                    .Skip((request.PageNo - 1) * request.PageSize)
-                    .Take(request.PageSize)
-                    .ToListAsync();
-
-                var totalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize);
-
-                return new CinemaListResponseDto
-                {
-                    IsSuccess = true,
-                    Message = "Cinemas retrieved successfully",
-                    Cinemas = cinemas,
-                    TotalCount = totalCount,
-                    PageNo = request.PageNo,
-                    PageSize = request.PageSize,
-                    TotalPages = totalPages
-                };
-            }
-            catch (Exception ex)
-            {
-                return new CinemaListResponseDto
-                {
-                    IsSuccess = false,
-                    Message = $"Error retrieving cinemas: {ex.Message}",
-                    Cinemas = new List<TblCinemaList>()
-                };
-            }
+                IsSuccess = true,
+                Message = "Cinemas retrieved successfully",
+                Cinemas = result.Items,
+                TotalCount = result.TotalCount,
+                PageNo = result.PageNo,
+                PageSize = result.PageSize,
+                TotalPages = result.TotalPages
+            });
         }
 
-        public async Task<ScheduleResponseDto> GetSchedulesAsync(ScheduleRequestDto request)
+        public Task<ScheduleResponseDto> GetSchedulesAsync(ScheduleRequestDto request)
         {
-            try
+            var showDateIds = _data.ShowDates
+                .Where(x => x.MovieId == request.MovieId && x.CinemaId == request.CinemaId)
+                .Select(x => x.ShowDateId)
+                .ToHashSet();
+
+            var query = _data.MovieSchedules.Where(x => showDateIds.Contains(x.ShowDateId));
+            if (request.Date != default)
             {
-                var query = _context.TblMovieSchedules
-                    .Include(s => s.ShowDate)
-                    .Where(s => s.ShowDate.MovieId == request.MovieId 
-                             && s.ShowDate.CinemaId == request.CinemaId
-                             && s.ShowDateTime.Date == request.Date.Date)
-                    .AsQueryable();
-
-                var totalCount = await query.CountAsync();
-
-                var schedules = await query
-                    .Skip((request.PageNo - 1) * request.PageSize)
-                    .Take(request.PageSize)
-                    .ToListAsync();
-
-                var totalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize);
-
-                return new ScheduleResponseDto
-                {
-                    IsSuccess = true,
-                    Message = "Schedules retrieved successfully",
-                    Schedules = schedules,
-                    TotalCount = totalCount,
-                    PageNo = request.PageNo,
-                    PageSize = request.PageSize,
-                    TotalPages = totalPages
-                };
+                query = query.Where(x => x.ShowDateTime.Date == request.Date.Date);
             }
-            catch (Exception ex)
+
+            var result = Page(query.OrderBy(x => x.ShowDateTime), request.PageNo, request.PageSize);
+            return Task.FromResult(new ScheduleResponseDto
             {
-                return new ScheduleResponseDto
-                {
-                    IsSuccess = false,
-                    Message = $"Error retrieving schedules: {ex.Message}",
-                    Schedules = new List<TblMovieSchedule>()
-                };
-            }
+                IsSuccess = true,
+                Message = "Schedules retrieved successfully",
+                Schedules = result.Items,
+                TotalCount = result.TotalCount,
+                PageNo = result.PageNo,
+                PageSize = result.PageSize,
+                TotalPages = result.TotalPages
+            });
         }
 
-        public async Task<SeatResponseDto> GetSeatsForShowAsync(SeatRequestDto request)
+        public Task<SeatResponseDto> GetSeatsForShowAsync(SeatRequestDto request)
         {
-            try
+            var schedule = _data.MovieSchedules.FirstOrDefault(x => x.ShowId == request.ShowId);
+            if (schedule is null)
             {
-                // 1. Get the RoomId for the Show
-                var schedule = await _context.TblMovieSchedules
-                    .Include(s => s.ShowDate)
-                    .FirstOrDefaultAsync(s => s.ShowId == request.ShowId);
-
-                if (schedule == null)
-                {
-                    return new SeatResponseDto
-                    {
-                        IsSuccess = false,
-                        Message = "Show not found",
-                        Seats = new List<TblRoomSeat>()
-                    };
-                }
-
-                // 2. Get all seats in that room with pagination
-                var query = _context.TblRoomSeats
-                    .Where(s => s.RoomId == schedule.ShowDate.RoomId)
-                    .AsQueryable();
-
-                var totalCount = await query.CountAsync();
-
-                var seats = await query
-                    .Skip((request.PageNo - 1) * request.PageSize)
-                    .Take(request.PageSize)
-                    .ToListAsync();
-
-                var totalPages = (int)Math.Ceiling(totalCount / (double)request.PageSize);
-
-                // Note: In a real app, you would also check TblBookingDetail to mark taken seats.
-                return new SeatResponseDto
-                {
-                    IsSuccess = true,
-                    Message = "Seats retrieved successfully",
-                    Seats = seats,
-                    TotalCount = totalCount,
-                    PageNo = request.PageNo,
-                    PageSize = request.PageSize,
-                    TotalPages = totalPages
-                };
-            }
-            catch (Exception ex)
-            {
-                return new SeatResponseDto
+                return Task.FromResult(new SeatResponseDto
                 {
                     IsSuccess = false,
-                    Message = $"Error retrieving seats: {ex.Message}",
+                    Message = "Show not found",
                     Seats = new List<TblRoomSeat>()
-                };
+                });
             }
-        }
 
-        public async Task<BookingResponseDto> BookTicketsAsync(BookingRequestDto request)
-        {
-            using var transaction = await _context.Database.BeginTransactionAsync();
-            try
+            var showDate = _data.ShowDates.FirstOrDefault(x => x.ShowDateId == schedule.ShowDateId);
+            if (showDate is null)
             {
-                var booking = new TblBooking
-                {
-                    ShowId = request.ShowId,
-                    CustomerName = request.CustomerName,
-                    BookingDate = DateTime.Now,
-                    TotalAmount = 0 
-                };
-
-                _context.TblBookings.Add(booking);
-                await _context.SaveChangesAsync();
-
-                decimal total = 0;
-
-                foreach (var seatId in request.SeatIds)
-                {
-                    // Fetch price for the seat's row
-                    var seat = await _context.TblRoomSeats.FindAsync(seatId);
-                    if (seat == null)
-                    {
-                        await transaction.RollbackAsync();
-                        return new BookingResponseDto
-                        {
-                            IsSuccess = false,
-                            Message = $"Seat with ID {seatId} not found"
-                        };
-                    }
-
-                    var priceObj = await _context.TblSeatPrices
-                        .FirstOrDefaultAsync(p => p.RoomId == seat.RoomId && p.RowName == seat.RowName);
-                    
-                    decimal price = priceObj?.SeatPrice ?? 0;
-                    total += price;
-
-                    _context.TblBookingDetails.Add(new TblBookingDetail
-                    {
-                        BookingId = booking.BookingId,
-                        SeatId = seatId,
-                        Price = price
-                    });
-                }
-
-                booking.TotalAmount = total;
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-
-                return new BookingResponseDto
-                {
-                    IsSuccess = true,
-                    Message = "Booking successful",
-                    BookingId = booking.BookingId,
-                    TotalAmount = booking.TotalAmount
-                };
-            }
-            catch (Exception ex)
-            {
-                await transaction.RollbackAsync();
-                return new BookingResponseDto
+                return Task.FromResult(new SeatResponseDto
                 {
                     IsSuccess = false,
-                    Message = $"Booking failed: {ex.Message}"
-                };
+                    Message = "Show date not found",
+                    Seats = new List<TblRoomSeat>()
+                });
             }
+
+            var result = Page(
+                _data.RoomSeats
+                    .Where(s => s.RoomId == showDate.RoomId)
+                    .OrderBy(s => s.RowName)
+                    .ThenBy(s => s.SeatNo),
+                request.PageNo,
+                request.PageSize);
+
+            return Task.FromResult(new SeatResponseDto
+            {
+                IsSuccess = true,
+                Message = "Seats retrieved successfully",
+                Seats = result.Items,
+                TotalCount = result.TotalCount,
+                PageNo = result.PageNo,
+                PageSize = result.PageSize,
+                TotalPages = result.TotalPages
+            });
+        }
+
+        public Task<BookingResponseDto> BookTicketsAsync(BookingRequestDto request)
+        {
+            return Task.FromResult(new BookingResponseDto
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
+        }
+
+        private static PageResult<T> Page<T>(IEnumerable<T> source, int pageNo, int pageSize)
+        {
+            pageNo = pageNo <= 0 ? 1 : pageNo;
+            pageSize = pageSize <= 0 ? 10 : pageSize;
+            var items = source.ToList();
+            var totalCount = items.Count;
+            var totalPages = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+            return new PageResult<T>
+            {
+                Items = items.Skip((pageNo - 1) * pageSize).Take(pageSize).ToList(),
+                TotalCount = totalCount,
+                PageNo = pageNo,
+                PageSize = pageSize,
+                TotalPages = totalPages
+            };
+        }
+
+        private class PageResult<T>
+        {
+            public List<T> Items { get; set; } = new();
+            public int TotalCount { get; set; }
+            public int PageNo { get; set; }
+            public int PageSize { get; set; }
+            public int TotalPages { get; set; }
         }
     }
 }

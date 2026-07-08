@@ -6,7 +6,7 @@ namespace MovieTicketOnlineBookingSystem.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MovieScheduleController : ControllerBase
+    public class MovieScheduleController : ReadOnlyControllerBase
     {
         private readonly ICrudService _service;
 
@@ -30,24 +30,21 @@ namespace MovieTicketOnlineBookingSystem.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateMovieScheduleDto dto)
+        public IActionResult Create()
         {
-            var response = await _service.CreateMovieScheduleAsync(dto);
-            return response.IsSuccess ? CreatedAtAction(nameof(GetById), new { id = response.Schedule?.ShowId }, response) : BadRequest(response);
+            return ReadOnly();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateMovieScheduleDto dto)
+        public IActionResult Update(int id)
         {
-            var response = await _service.UpdateMovieScheduleAsync(id, dto);
-            return response.IsSuccess ? Ok(response) : NotFound(response);
+            return ReadOnly();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            var response = await _service.DeleteMovieScheduleAsync(id);
-            return response.IsSuccess ? Ok(response) : NotFound(response);
+            return ReadOnly();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace MovieTicketOnlineBookingSystem.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BookingController : ControllerBase
+    public class BookingController : ReadOnlyControllerBase
     {
         private readonly IMovieBookingService _bookingService;
         private readonly ICrudService _crudService;
@@ -53,10 +53,9 @@ namespace MovieTicketOnlineBookingSystem.Api.Controllers
         }
 
         [HttpPost("book")]
-        public async Task<IActionResult> BookTickets([FromBody] BookingRequestDto request)
+        public IActionResult BookTickets()
         {
-            var response = await _bookingService.BookTicketsAsync(request);
-            return response.IsSuccess ? Ok(response) : BadRequest(response);
+            return ReadOnly();
         }
 
         // CRUD operations for Bookings
@@ -75,17 +74,15 @@ namespace MovieTicketOnlineBookingSystem.Api.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] UpdateBookingDto dto)
+        public IActionResult Update(int id)
         {
-            var response = await _crudService.UpdateBookingAsync(id, dto);
-            return response.IsSuccess ? Ok(response) : NotFound(response);
+            return ReadOnly();
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
-            var response = await _crudService.DeleteBookingAsync(id);
-            return response.IsSuccess ? Ok(response) : NotFound(response);
+            return ReadOnly();
         }
     }
 }
