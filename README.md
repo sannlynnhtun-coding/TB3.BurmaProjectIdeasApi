@@ -13,7 +13,7 @@ This project acts as a reverse proxy gateway that routes requests to the followi
 
 ## Configuration
 
-The project uses split JSON configuration files for each backend service with `api-` prefix and kebab-case naming:
+The gateway uses split JSON configuration files for each backend service with `api-` prefix and kebab-case naming. Enabled files are selected by `BurmaProjectIdeasYarp/api-settings.json`, and UI-created routes or clusters are stored in `BurmaProjectIdeasYarp/api-custom-routes.json`.
 
 - `api-burma-calendar-routes.json` - Routes for BurmaCalendar API
 - `api-burmese-recipes-routes.json` - Routes for BurmeseRecipes API  
@@ -63,14 +63,9 @@ All routes use kebab-case for the gateway paths and transform to the backend con
    ```
 3. The gateway will be available at `http://localhost:5138` (HTTP) or `https://localhost:7093` (HTTPS)
 
-## Adding New Routes
+## Editing Gateway Routes
 
-To add routes for a new service:
-
-1. Create a new JSON configuration file following the naming convention: `api-{service-name}-routes.json` (use kebab-case)
-2. Define the routes and clusters in the file using snake_case for route and cluster names
-3. Add the file name to the `configFiles` array in `Program.cs`
-4. Rebuild and run the project
+Use the gateway UI or `api/gateway` management endpoints to edit existing routes and clusters. Changes are written back to the JSON file that owns the route or cluster. New routes and clusters are written to `api-custom-routes.json`.
 
 Example file structure:
 ```json
@@ -110,9 +105,14 @@ Example file structure:
 - **Gateway paths**: `/api/{kebab-case-path}`
 - **Backend paths**: `/api/{PascalCaseControllerName}` (transformed via PathPattern)
 
+## API Data
+
+Content APIs use local JSON files under each API project's `Data` folder. GET/list/search endpoints remain available, while create/update/patch/delete/seed and booking POST endpoints return `405 Method Not Allowed`.
+
 ## Notes
 
-- The configuration files are automatically merged at startup
+- Enabled configuration files are automatically merged at startup
+- `api-custom-routes.json` is always loaded when present
 - Route matching is case-insensitive
 - All routes use the `{**catch-all}` pattern to forward the entire path to the backend
 - Gateway paths use kebab-case for consistency, while backend controller routes use PascalCase
