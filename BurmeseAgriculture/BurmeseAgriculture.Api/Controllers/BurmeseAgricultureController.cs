@@ -1,5 +1,5 @@
-﻿using BurmeseAgriculture.Api.Services;
-using Microsoft.AspNetCore.Http;
+using BurmeseAgriculture.Api.Dtos;
+using BurmeseAgriculture.Api.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BurmeseAgriculture.Api.Controllers
@@ -8,17 +8,17 @@ namespace BurmeseAgriculture.Api.Controllers
     [ApiController]
     public class BurmeseAgricultureController : ControllerBase
     {
-        private readonly IBurmeseAgricultureService _IburmeseAgricultureService;
+        private readonly IBurmeseAgricultureService _burmeseAgricultureService;
 
-        public BurmeseAgricultureController(IBurmeseAgricultureService IburmeseAgricultureService)
+        public BurmeseAgricultureController(IBurmeseAgricultureService burmeseAgricultureService)
         {
-            _IburmeseAgricultureService = IburmeseAgricultureService;
+            _burmeseAgricultureService = burmeseAgricultureService;
         }
 
         [HttpGet("{pageNo}/{pageSize}")]
         public IActionResult GetAgricultures(int pageNo = 1, int pageSize = 10)
         {
-            var result = _IburmeseAgricultureService.GetList(pageNo, pageSize);
+            var result = _burmeseAgricultureService.GetList(pageNo, pageSize);
             if (!result.IsSuccess)
                 return BadRequest(result);
 
@@ -28,53 +28,44 @@ namespace BurmeseAgriculture.Api.Controllers
         [HttpGet("{id}")]
         public IActionResult GetAgricultureById(int id)
         {
-            var result = _IburmeseAgricultureService.GetById(id);
-            if(!result.IsSuccess)
+            var result = _burmeseAgricultureService.GetById(id);
+            if (!result.IsSuccess)
                 return BadRequest(result);
 
             return Ok(result);
         }
 
-
         [HttpPost]
-        public IActionResult CreateAgriculture(AgricultureCreateRequestDto request)
+        public IActionResult CreateAgriculture()
         {
-            var result = _IburmeseAgricultureService.Create(request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateAgriculture(int id, AgricultureUpdateRequestDto request)
+        public IActionResult UpdateAgriculture(int id)
         {
-            var result = _IburmeseAgricultureService.Update(id, request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPatch("{id}")]
-        public IActionResult UpdateAgriculture(int id, AgriculturePatchRequestDto request)
+        public IActionResult PatchAgriculture(int id)
         {
-            AgricultureResponseDto result = _IburmeseAgricultureService.Patch(id, request);
-
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpDelete("{id}")]
         public IActionResult DeleteAgriculture(int id)
         {
-            AgricultureResponseDto result = _IburmeseAgricultureService.Delete(id);
-            if (!result.IsSuccess)
-                return BadRequest(result);
+            return ReadOnly();
+        }
 
-            return Ok(result);
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }
