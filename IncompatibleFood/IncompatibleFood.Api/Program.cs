@@ -1,6 +1,4 @@
 using IncompatibleFood.Api.Services;
-using IncompatibleFood.Database.IncompatibleFoodDbContextModels;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,11 +10,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IIncompatibleFoodService, IncompatibleFoodService>();
-
-builder.Services.AddDbContext<IncompatibleFoodDbContext>(opt =>
-{
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")!);
-});
 
 var app = builder.Build();
 

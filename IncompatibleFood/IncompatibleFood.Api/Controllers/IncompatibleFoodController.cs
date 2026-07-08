@@ -1,18 +1,13 @@
-﻿using Azure.Core;
 using IncompatibleFood.Api.Dtos;
 using IncompatibleFood.Api.Services;
-using IncompatibleFood.Database.IncompatibleFoodDbContextModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IncompatibleFood.Api.Controllers
 {
-    // https://localhost:7197/api/IncompatibleFood
     [Route("api/[controller]")]
     [ApiController]
     public class IncompatibleFoodController : ControllerBase
     {
-        // private readonly IncompatibleFoodDbContext _context;
         private readonly IIncompatibleFoodService _incompatibleFoodService;
 
         public IncompatibleFoodController(IIncompatibleFoodService incompatibleFoodService)
@@ -41,39 +36,36 @@ namespace IncompatibleFood.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateIncompatibleFood(IncompatibleFoodCreateRequestDto request)
+        public IActionResult CreateIncompatibleFood()
         {
-            var result = _incompatibleFoodService.CreateIncompatibleFood(request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateIncompatibleFoods(int id, IncompatibleFoodUpdateRequestDto request)
+        public IActionResult UpdateIncompatibleFoods(int id)
         {
-            var result = _incompatibleFoodService.UpdateIncompatibleFood(id, request);
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpPatch("{id}")]
-        public IActionResult PatchIncompatibleFood(int id, IncompatibleFoodPatchRequestDto request)
+        public IActionResult PatchIncompatibleFood(int id)
         {
-            IncompatibleFoodResponseDto result = _incompatibleFoodService.PatchIncompatibleFood(id, request);
-
-            if (!result.IsSuccess)
-                return BadRequest(result);
-
-            return Ok(result);
+            return ReadOnly();
         }
 
         [HttpDelete]
         public IActionResult DeleteIncompatibleFoods()
         {
-            return Ok("Delete Incompatible Foods");
+            return ReadOnly();
+        }
+
+        private ObjectResult ReadOnly()
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, new
+            {
+                IsSuccess = false,
+                Message = "Read-only JSON data source."
+            });
         }
     }
 }
