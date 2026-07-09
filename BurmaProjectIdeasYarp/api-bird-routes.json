@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "bird_route": {
+        "ClusterId": "bird_cluster",
+        "Match": {
+          "Path": "/api/bird/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/Bird/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "bird_cluster": {
+        "Destinations": {
+          "bird_destination": {
+            "Address": "http://localhost:5041/"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "incompatible_food_route": {
+        "ClusterId": "incompatible_food_cluster",
+        "Match": {
+          "Path": "/api/incompatible-food/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/IncompatibleFood/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "incompatible_food_cluster": {
+        "Destinations": {
+          "incompatible_food_destination": {
+            "Address": "http://localhost:5208/"
+          }
+        }
+      }
+    }
+  }
+}
