@@ -28,6 +28,11 @@
         "DebugTarget": "https"
       },
       {
+        "Path": "BurmaCalendar\\BurmaCalendar.Api\\BurmaCalendar.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
         "Path": "IncompatibleFood\\IncompatibleFood.Api\\IncompatibleFood.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"

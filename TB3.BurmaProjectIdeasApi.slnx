@@ -2,7 +2,9 @@
   <Folder Name="/Bird/">
     <Project Path="Bird\Bird.Api\Bird.Api.csproj" />
   </Folder>
-  <Folder Name="/BurmaCalendar/" />
+  <Folder Name="/BurmaCalendar/">
+    <Project Path="BurmaCalendar/BurmaCalendar.Api/BurmaCalendar.Api.csproj" Id="96fdb22d-7ecd-47e9-a720-f9258bc2ddab" />
+  </Folder>
   <Folder Name="/BurmeseAgriculture/">
     <Project Path="BurmeseAgriculture/BurmeseAgriculture.Api/BurmeseAgriculture.Api.csproj" Id="5848f4c1-0f45-48ad-a0f9-3f4d6b9663a5" />
   </Folder>
