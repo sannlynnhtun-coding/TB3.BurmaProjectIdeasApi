@@ -18,6 +18,26 @@
         "DebugTarget": "https"
       },
       {
+        "Path": "Bird\\Bird.Api\\Bird.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "BurmeseAgriculture\\BurmeseAgriculture.Api\\BurmeseAgriculture.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "IncompatibleFood\\IncompatibleFood.Api\\IncompatibleFood.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "MissingHistoricalRecords\\MissingHistoricalRecords.Api\\MissingHistoricalRecords.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
+      },
+      {
         "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
         "Action": "Start",
         "DebugTarget": "https"
