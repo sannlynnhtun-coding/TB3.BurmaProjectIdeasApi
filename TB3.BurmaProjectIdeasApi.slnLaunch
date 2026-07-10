@@ -51,6 +51,11 @@
         "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
         "Action": "Start",
         "DebugTarget": "https"
+      },
+      {
+        "Path": "BaganMap\\BaganMap.Api\\BaganMap.Api.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
       }
     ]
   }

@@ -25,7 +25,8 @@ namespace BurmaProjectIdeasYarp.Services
             { "burmese_agriculture", "api-burmese-agriculture-routes.json" },
             { "incompatible_food", "api-incompatible-food-routes.json" },
             { "missing_historical_records", "api-missing-historical-records-routes.json" },
-            { "quotlets", "api-quotlets-routes.json" }
+            { "quotlets", "api-quotlets-routes.json" },
+            { "bagan-map", "api-bagan-map-routes.json" }
         };
         
         // Event to notify when config changes

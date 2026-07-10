@@ -8,7 +8,8 @@
     "burmese_agriculture": true,
     "incompatible_food": true,
     "missing_historical_records": true,
-    "quotlets": true
+    "quotlets": true,
+    "bagan-map" :  true
   }
 }
 
