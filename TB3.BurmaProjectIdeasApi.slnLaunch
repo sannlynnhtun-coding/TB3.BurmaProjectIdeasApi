@@ -46,6 +46,11 @@
         "Path": "Quotlets\\Quotlets.Api\\Quotlets.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
+      },
+      {
+        "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
+        "Action": "Start",
+        "DebugTarget": "https"
       }
     ]
   }
