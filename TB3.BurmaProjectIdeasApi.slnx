@@ -20,6 +20,9 @@
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
   </Folder>
+  <Folder Name="/Quotlets/">
+    <Project Path="Quotlets/Quotlets.Api/Quotlets.Api.csproj" Id="f60e0a70-dbff-4f5d-b0c9-5ea4ba0f644c" />
+  </Folder>
   <Folder Name="/Snake/">
     <Project Path="Snake/Snake.Api/Snake.Api.csproj" />
   </Folder>

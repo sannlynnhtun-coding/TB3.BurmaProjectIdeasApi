@@ -43,7 +43,7 @@
         "DebugTarget": "https"
       },
       {
-        "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
+        "Path": "Quotlets\\Quotlets.Api\\Quotlets.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       }
