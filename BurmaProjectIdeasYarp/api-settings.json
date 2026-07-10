@@ -3,7 +3,13 @@
     "burma_calendar": true,
     "burmese_recipes": true,
     "movie_ticket_online_booking_system": true,
-    "snake": true
+    "snake": true,
+    "bird": true,
+    "burmese_agriculture": true,
+    "incompatible_food": true,
+    "missing_historical_records": true,
+    "quotlets": true,
+    "bagan-map" :  true
   }
 }
 

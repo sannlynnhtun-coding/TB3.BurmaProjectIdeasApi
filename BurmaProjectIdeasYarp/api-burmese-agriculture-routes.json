@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "burmese_agriculture_route": {
+        "ClusterId": "burmese_agriculture_cluster",
+        "Match": {
+          "Path": "/api/burmese-agriculture/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/BurmeseAgriculture/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "burmese_agriculture_cluster": {
+        "Destinations": {
+          "burmese_agriculture_destination": {
+            "Address": "http://localhost:5044/"
+          }
+        }
+      }
+    }
+  }
+}

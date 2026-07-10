@@ -1,8 +1,13 @@
 <Solution>
+  <Folder Name="/BaganMap/">
+    <Project Path="BaganMap/BaganMap.Api/BaganMap.Api.csproj" Id="d2caf386-a04d-403c-8796-83a6cda18a7f" />
+  </Folder>
   <Folder Name="/Bird/">
     <Project Path="Bird\Bird.Api\Bird.Api.csproj" />
   </Folder>
-  <Folder Name="/BurmaCalendar/" />
+  <Folder Name="/BurmaCalendar/">
+    <Project Path="BurmaCalendar/BurmaCalendar.Api/BurmaCalendar.Api.csproj" Id="96fdb22d-7ecd-47e9-a720-f9258bc2ddab" />
+  </Folder>
   <Folder Name="/BurmeseAgriculture/">
     <Project Path="BurmeseAgriculture/BurmeseAgriculture.Api/BurmeseAgriculture.Api.csproj" Id="5848f4c1-0f45-48ad-a0f9-3f4d6b9663a5" />
   </Folder>
@@ -17,6 +22,9 @@
   </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
+  </Folder>
+  <Folder Name="/Quotlets/">
+    <Project Path="Quotlets/Quotlets.Api/Quotlets.Api.csproj" Id="f60e0a70-dbff-4f5d-b0c9-5ea4ba0f644c" />
   </Folder>
   <Folder Name="/Snake/">
     <Project Path="Snake/Snake.Api/Snake.Api.csproj" />

@@ -1,6 +1,7 @@
 using BurmaProjectIdeasYarp.Services;
 using BurmaProjectIdeasYarp;
 using Yarp.ReverseProxy.Configuration;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Configuration.AddJsonFile("api-settings.json", optional: true, reloadOnChange: false);
@@ -47,6 +48,14 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Burma Project Ideas API Gateway v1");
     c.RoutePrefix = "swagger";
 });
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapScalarApiReference(options =>
+    {
+        options.WithOpenApiRoutePattern("/swagger/v1/swagger.json");
+    });
+}
 
 // Map MVC routes
 app.MapControllers();

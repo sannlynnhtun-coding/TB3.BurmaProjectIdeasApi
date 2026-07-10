@@ -1,0 +1,37 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "book_title_route": {
+        "ClusterId": "missing_historical_records_cluster",
+        "Match": {
+          "Path": "/api/book-title/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/BookTitle/{**catch-all}"
+          }
+        ]
+      },
+      "book_content_route": {
+        "ClusterId": "missing_historical_records_cluster",
+        "Match": {
+          "Path": "/api/book-content/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/BookContent/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "missing_historical_records_cluster": {
+        "Destinations": {
+          "missing_historical_records_destination": {
+            "Address": "http://localhost:5106/"
+          }
+        }
+      }
+    }
+  }
+}

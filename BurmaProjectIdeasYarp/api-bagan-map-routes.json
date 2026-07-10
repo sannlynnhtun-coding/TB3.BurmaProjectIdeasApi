@@ -1,0 +1,27 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "bagan_map_route": {
+        "ClusterId": "baga_map_cluster",
+        "Match": {
+          "Path": "/api/bagan-map/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/BaganMap/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "baga_map_cluster": {
+        "Destinations": {
+          "baga_map_destination": {
+            "Address": "http://localhost:5225/"
+          }
+        }
+      }
+    }
+  }
+}
+

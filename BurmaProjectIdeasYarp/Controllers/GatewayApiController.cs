@@ -19,7 +19,13 @@ namespace BurmaProjectIdeasYarp.Controllers
             { "burma_calendar", "api-burma-calendar-routes.json" },
             { "burmese_recipes", "api-burmese-recipes-routes.json" },
             { "movie_ticket_online_booking_system", "api-movie-ticket-online-booking-system-routes.json" },
-            { "snake", "api-snake-routes.json" }
+            { "snake", "api-snake-routes.json" },
+            { "bird", "api-bird-routes.json" },
+            { "burmese_agriculture", "api-burmese-agriculture-routes.json" },
+            { "incompatible_food", "api-incompatible-food-routes.json" },
+            { "missing_historical_records", "api-missing-historical-records-routes.json" },
+            { "quotlets", "api-quotlets-routes.json" }
+
         };
 
         public GatewayApiController(
