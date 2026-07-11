@@ -1,0 +1,1482 @@
+{
+  "info": {
+    "_postman_id": "8413bd76-a4dc-4eba-bf7d-bf380e922ee7",
+    "name": "BurmaProjectYarp",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39312543",
+    "_collection_link": "https://go.postman.co/collection/39312543-8413bd76-a4dc-4eba-bf7d-bf380e922ee7?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Art Gallery",
+      "item": [
+        {
+          "name": "Get Art Gallery List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/art-gallery/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "art-gallery",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Art Gallery By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/art-gallery/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "art-gallery",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bagan Map",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/bagan-map/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "bagan-map",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/bagan-map/27aa55d0-4116-4fa1-bffc-99d09501f26e",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "bagan-map",
+                "27aa55d0-4116-4fa1-bffc-99d09501f26e"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bird",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/bird/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "bird",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/bird/5",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "bird",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Burmese Agriculture",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/burmese-agriculture/2/15",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "burmese-agriculture",
+                "2",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/burmese-agriculture/6",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "burmese-agriculture",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Burmese Recipes",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/burmese-recipes/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "burmese-recipes",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dream Dictionary",
+      "item": [
+        {
+          "name": "Get Header List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/dream-dictionary/headers/3/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "dream-dictionary",
+                "headers",
+                "3",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Header By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/dream-dictionary/header/5",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "dream-dictionary",
+                "header",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Dream Detail List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/dream-dictionary/details/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "dream-dictionary",
+                "details",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Dream Detail By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/dream-dictionary/detail/8",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "dream-dictionary",
+                "detail",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Search Dream",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/dream-dictionary/search/ဘ",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "dream-dictionary",
+                "search",
+                "ဘ"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Incompatible Food",
+      "item": [
+        {
+          "name": "Get",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"routeId\": null,\r\n  \"clusterId\": null,\r\n  \"matchPath\": null,\r\n  \"transforms\": [\r\n    {\r\n      \"additionalProperty\": \"\"\r\n    }\r\n  ],\r\n  \"enabled\": true\r\n}"
+            },
+            "url": {
+              "raw": "https://localhost:7093/api/incompatible-food/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "incompatible-food",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"routeId\": null,\r\n  \"clusterId\": null,\r\n  \"matchPath\": null,\r\n  \"transforms\": [\r\n    {\r\n      \"additionalProperty\": \"\"\r\n    }\r\n  ],\r\n  \"enabled\": true\r\n}"
+            },
+            "url": {
+              "raw": "https://localhost:7093/api/incompatible-food/15",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "incompatible-food",
+                "15"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Lat Htauk Bay Din",
+      "item": [
+        {
+          "name": "Get Question List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/lat-htauk-bay-din/questions",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "lat-htauk-bay-din",
+                "questions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Question By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/lat-htauk-bay-din/questions/8",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "lat-htauk-bay-din",
+                "questions",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Answer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/lat-htauk-bay-din/answer?questionNo=8&answerNo=4",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "lat-htauk-bay-din",
+                "answer"
+              ],
+              "query": [
+                {
+                  "key": "questionNo",
+                  "value": "8"
+                },
+                {
+                  "key": "answerNo",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Missing Historical Records",
+      "item": [
+        {
+          "name": "Get Book Title",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"routeId\": null,\r\n  \"clusterId\": null,\r\n  \"matchPath\": null,\r\n  \"transforms\": [\r\n    {\r\n      \"additionalProperty\": \"\"\r\n    }\r\n  ],\r\n  \"enabled\": true\r\n}"
+            },
+            "url": {
+              "raw": "https://localhost:7093/api/book-title/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "book-title",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book Title By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/book-title/17",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "book-title",
+                "17"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Book Content",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/book-content/5",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "book-content",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Movie Ticket",
+      "item": [
+        {
+          "name": "Get Booking",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/booking",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "booking"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Booking By Id",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movie List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/movie?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "movie"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movie By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/movie/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "movie",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Cinema List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/cinema?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "cinema"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Cinema By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/cinema?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "cinema"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Schedules List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/booking/schedules?pageNo=1&pageSize=10&movieId=1&cinemaId=1&showDateId=1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "booking",
+                "schedules"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                },
+                {
+                  "key": "movieId",
+                  "value": "1"
+                },
+                {
+                  "key": "cinemaId",
+                  "value": "1"
+                },
+                {
+                  "key": "showDateId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movie Schedules List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/movie-schedule?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "movie-schedule"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Movie Schedule By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/movie-schedule/5",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "movie-schedule",
+                "5"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Seats List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/booking/seats/1?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "booking",
+                "seats",
+                "1"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Room Seat",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/room-seat?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "room-seat"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Room Seat By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/room-seat/6",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "room-seat",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Seat Price",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/seat-price?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "seat-price"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Seat Price By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/seat-price/4",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "seat-price",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Seat Price By Room Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/seat-price/room/3?pageNo=1&pageSize=10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "seat-price",
+                "room",
+                "3"
+              ],
+              "query": [
+                {
+                  "key": "pageNo",
+                  "value": "1"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Myanmar Proverbs",
+      "item": [
+        {
+          "name": "Get Proverbs List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/myanmar-proverbs/titles",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "myanmar-proverbs",
+                "titles"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Proverbs List Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/myanmar-proverbs/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "myanmar-proverbs",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Title Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/myanmar-proverbs/6",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "myanmar-proverbs",
+                "6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Title Id and Proverb Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/myanmar-proverbs/proverb/6/2",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "myanmar-proverbs",
+                "proverb",
+                "6",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Myanmar Months (Burma-Calendar)",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/burma-calendar/1/12",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "burma-calendar",
+                "1",
+                "12"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/burma-calendar/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "burma-calendar",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Pick A Pile",
+      "item": [
+        {
+          "name": "Get Question List",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/pick-a-pile/questions",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "pick-a-pile",
+                "questions"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Question By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/pick-a-pile/questions/8",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "pick-a-pile",
+                "questions",
+                "8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Answer By Question Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/pick-a-pile/answers/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "pick-a-pile",
+                "answers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Question Id and Answer Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/pick-a-pile/answers/1/4",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "pick-a-pile",
+                "answers",
+                "1",
+                "4"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Quotlets",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/quotlets",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "quotlets"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/quotlets/413435c0-e418-4e0d-83c4-85289962569f",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "quotlets",
+                "413435c0-e418-4e0d-83c4-85289962569f"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Snake",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/snake/1/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "snake",
+                "1",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/snake/1",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "snake",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Zodiac",
+      "item": [
+        {
+          "name": "Get",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/zodiac/10",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "zodiac",
+                "10"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get By Name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://localhost:7093/api/zodiac/name/aries",
+              "protocol": "https",
+              "host": [
+                "localhost"
+              ],
+              "port": "7093",
+              "path": [
+                "api",
+                "zodiac",
+                "name",
+                "aries"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Gateway Config",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7093/api/gateway/config",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7093",
+          "path": [
+            "api",
+            "gateway",
+            "config"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Gateway Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7093/api/gateway/status",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7093",
+          "path": [
+            "api",
+            "gateway",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Gateway Routes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7093/api/gateway/routes",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7093",
+          "path": [
+            "api",
+            "gateway",
+            "routes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "All Json Routes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7093/api/gateway/all-json-routes/bird",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7093",
+          "path": [
+            "api",
+            "gateway",
+            "all-json-routes",
+            "bird"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Overwrite Route Path",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"routeId\": null,\r\n  \"clusterId\": null,\r\n  \"matchPath\": null,\r\n  \"transforms\": [\r\n    {\r\n      \"additionalProperty\": \"\"\r\n    }\r\n  ],\r\n  \"enabled\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://localhost:7093/api/gateway/routes",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7093",
+          "path": [
+            "api",
+            "gateway",
+            "routes"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
