@@ -24,8 +24,8 @@ namespace BurmaProjectIdeasYarp.Controllers
             { "burmese_agriculture", "api-burmese-agriculture-routes.json" },
             { "incompatible_food", "api-incompatible-food-routes.json" },
             { "missing_historical_records", "api-missing-historical-records-routes.json" },
-            { "quotlets", "api-quotlets-routes.json" }
-
+            { "quotlets", "api-quotlets-routes.json" },
+            { "art_gallery", "api-art-gallery-routes.json" }
         };
 
         public GatewayApiController(

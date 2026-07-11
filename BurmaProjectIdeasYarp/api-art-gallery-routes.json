@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "art_gallery_route": {
+        "ClusterId": "art_gallery_cluster",
+        "Match": {
+          "Path": "/api/art-gallery/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/ArtGallery/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "art_gallery_cluster": {
+        "Destinations": {
+          "art_gallery_destination": {
+            "Address": "http://localhost:5070/"
+          }
+        }
+      }
+    }
+  }
+}

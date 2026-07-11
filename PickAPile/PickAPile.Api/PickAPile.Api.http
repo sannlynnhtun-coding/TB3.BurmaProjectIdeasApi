@@ -1,0 +1,6 @@
+@PickAPile.Api_HostAddress = http://localhost:5171
+
+GET {{PickAPile.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

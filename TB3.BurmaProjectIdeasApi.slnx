@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/ArtGallery/">
+    <Project Path="ArtGallery/ArtGallery.Api/ArtGallery.Api.csproj" Id="894d4844-1ba8-4bcc-88da-6b8fd788a200" />
+  </Folder>
   <Folder Name="/BaganMap/">
     <Project Path="BaganMap/BaganMap.Api/BaganMap.Api.csproj" Id="d2caf386-a04d-403c-8796-83a6cda18a7f" />
   </Folder>
@@ -14,14 +17,29 @@
   <Folder Name="/BurmeseRecipes/">
     <Project Path="BurmeseRecipes/BurmeseRecipes.Api/BurmeseRecipes.Api.csproj" />
   </Folder>
+  <Folder Name="/DreamDictionary/">
+    <Project Path="DreamDictionary/DreamDictionary.Api/DreamDictionary.Api.csproj" Id="dabdcd10-4541-4d22-a908-22ca949da828" />
+  </Folder>
   <Folder Name="/IncompatibleFood/">
     <Project Path="IncompatibleFood/IncompatibleFood.Api/IncompatibleFood.Api.csproj" Id="920910a5-91e3-468c-b5dc-2a3a54c06aaf" />
+  </Folder>
+  <Folder Name="/LatHtaukBayDin/">
+    <Project Path="LatHtaukBayDin/LatHtaukBayDin.Api/LatHtaukBayDin.Api.csproj" Id="f2d7c624-cda8-4cef-bbe9-21069aee2250" />
   </Folder>
   <Folder Name="/MissingHistoricalRecords/">
     <Project Path="MissingHistoricalRecords/MissingHistoricalRecords.Api/MissingHistoricalRecords.Api.csproj" />
   </Folder>
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
+  </Folder>
+  <Folder Name="/MyanmarProverbs/">
+    <Project Path="MyanmarProverbs/MyanmarProverbs.Api/MyanmarProverbs.Api.csproj" Id="65f983bb-ecb6-4fef-8f72-f339bf4d8a21" />
+  </Folder>
+  <Folder Name="/PhayarSar/">
+    <Project Path="PhayarSar/PhayarSar.Api/PhayarSar.Api.csproj" Id="7e437e6e-5bc3-4367-9422-07bd9a0d7d3d" />
+  </Folder>
+  <Folder Name="/PickAPile/">
+    <Project Path="PickAPile/PickAPile.Api/PickAPile.Api.csproj" Id="6e5325d4-4719-48f0-8e53-09e99a09698b" />
   </Folder>
   <Folder Name="/Quotlets/">
     <Project Path="Quotlets/Quotlets.Api/Quotlets.Api.csproj" Id="f60e0a70-dbff-4f5d-b0c9-5ea4ba0f644c" />
@@ -31,6 +49,9 @@
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Zodiac/">
+    <Project Path="Zodiac/Zodiac.Api/Zodiac.Api.csproj" Id="7abdb55e-8357-4013-a710-c6bd173a3d24" />
   </Folder>
   <Project Path="BurmaProjectIdeasYarp/BurmaProjectIdeasYarp.csproj" />
 </Solution>

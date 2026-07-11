@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "zodiac_route": {
+        "ClusterId": "zodiac_cluster",
+        "Match": {
+          "Path": "/api/zodiac/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/Zodiac/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "zodiac_cluster": {
+        "Destinations": {
+          "zodiac_destination": {
+            "Address": "http://localhost:5070/"
+          }
+        }
+      }
+    }
+  }
+}

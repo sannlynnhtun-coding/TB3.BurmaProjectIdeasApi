@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "phayar_sar_route": {
+        "ClusterId": "phayar_sar_cluster",
+        "Match": {
+          "Path": "/api/phayar-sar/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/PhayarSar/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "phayar_sar_cluster": {
+        "Destinations": {
+          "phayar_sar_destination": {
+            "Address": "http://localhost:5050/"
+          }
+        }
+      }
+    }
+  }
+}
