@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "quotlet_route": {
+        "ClusterId": "quotlet_cluster",
+        "Match": {
+          "Path": "/api/quotlets/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/Quotlets/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "quotlet_cluster": {
+        "Destinations": {
+          "quotlet_destination": {
+            "Address": "http://localhost:5192/"
+          }
+        }
+      }
+    }
+  }
+}

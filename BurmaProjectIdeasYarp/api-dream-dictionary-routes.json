@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "dream_dictionary_route": {
+        "ClusterId": "dream_dictionary_cluster",
+        "Match": {
+          "Path": "/api/dream-dictionary/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/DreamDictionary/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "dream_dictionary_cluster": {
+        "Destinations": {
+          "dream_dictionary_destination": {
+            "Address": "http://localhost:5241/"
+          }
+        }
+      }
+    }
+  }
+}

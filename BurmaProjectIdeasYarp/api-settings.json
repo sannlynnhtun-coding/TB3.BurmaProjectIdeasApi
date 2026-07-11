@@ -7,7 +7,16 @@
     "bird": true,
     "burmese_agriculture": true,
     "incompatible_food": true,
-    "missing_historical_records": true
+    "missing_historical_records": true,
+    "quotlets": true,
+    "bagan_map" :  true,
+    "art_gallery": true,
+    "dream_dictionary": true,
+    "lat_htauk_bay_din": true,
+    "myanmar_proverbs": true,
+    "pick_a_pile" : true,
+    "phayar_sar" : true,
+    "zodiac" : true
   }
 }
 
