@@ -3,57 +3,12 @@
     "Name": "YARP",
     "Projects": [
       {
-        "Path": "BurmeseRecipes\\BurmeseRecipes.Api\\BurmeseRecipes.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "MovieTicketOnlineBookingSystem\\MovieTicketOnlineBookingSystem.Api\\MovieTicketOnlineBookingSystem.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "Snake\\Snake.Api\\Snake.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "Bird\\Bird.Api\\Bird.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "BurmeseAgriculture\\BurmeseAgriculture.Api\\BurmeseAgriculture.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "BurmaCalendar\\BurmaCalendar.Api\\BurmaCalendar.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "IncompatibleFood\\IncompatibleFood.Api\\IncompatibleFood.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "MissingHistoricalRecords\\MissingHistoricalRecords.Api\\MissingHistoricalRecords.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "Quotlets\\Quotlets.Api\\Quotlets.Api.csproj",
+        "Path": "ArtGallery\\ArtGallery.Api\\ArtGallery.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       },
       {
         "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
-      },
-      {
-        "Path": "BaganMap\\BaganMap.Api\\BaganMap.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       }

@@ -9,7 +9,8 @@
     "incompatible_food": true,
     "missing_historical_records": true,
     "quotlets": true,
-    "bagan-map" :  true
+    "bagan_map" :  true,
+    "art_gallery": true
   }
 }
 

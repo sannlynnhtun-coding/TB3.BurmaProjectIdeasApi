@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/ArtGallery/">
+    <Project Path="ArtGallery/ArtGallery.Api/ArtGallery.Api.csproj" Id="894d4844-1ba8-4bcc-88da-6b8fd788a200" />
+  </Folder>
   <Folder Name="/BaganMap/">
     <Project Path="BaganMap/BaganMap.Api/BaganMap.Api.csproj" Id="d2caf386-a04d-403c-8796-83a6cda18a7f" />
   </Folder>
