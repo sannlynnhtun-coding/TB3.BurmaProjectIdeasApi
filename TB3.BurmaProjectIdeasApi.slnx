@@ -23,6 +23,9 @@
   <Folder Name="/IncompatibleFood/">
     <Project Path="IncompatibleFood/IncompatibleFood.Api/IncompatibleFood.Api.csproj" Id="920910a5-91e3-468c-b5dc-2a3a54c06aaf" />
   </Folder>
+  <Folder Name="/LatHtaukBayDin/">
+    <Project Path="LatHtaukBayDin/LatHtaukBayDin.Api/LatHtaukBayDin.Api.csproj" Id="f2d7c624-cda8-4cef-bbe9-21069aee2250" />
+  </Folder>
   <Folder Name="/MissingHistoricalRecords/">
     <Project Path="MissingHistoricalRecords/MissingHistoricalRecords.Api/MissingHistoricalRecords.Api.csproj" />
   </Folder>
