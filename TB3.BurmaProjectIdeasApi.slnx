@@ -35,6 +35,9 @@
   <Folder Name="/MyanmarProverbs/">
     <Project Path="MyanmarProverbs/MyanmarProverbs.Api/MyanmarProverbs.Api.csproj" Id="65f983bb-ecb6-4fef-8f72-f339bf4d8a21" />
   </Folder>
+  <Folder Name="/PhayarSar/">
+    <Project Path="PhayarSar/PhayarSar.Api/PhayarSar.Api.csproj" Id="7e437e6e-5bc3-4367-9422-07bd9a0d7d3d" />
+  </Folder>
   <Folder Name="/PickAPile/">
     <Project Path="PickAPile/PickAPile.Api/PickAPile.Api.csproj" Id="6e5325d4-4719-48f0-8e53-09e99a09698b" />
   </Folder>
@@ -46,6 +49,9 @@
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Zodiac/">
+    <Project Path="Zodiac/Zodiac.Api/Zodiac.Api.csproj" Id="7abdb55e-8357-4013-a710-c6bd173a3d24" />
   </Folder>
   <Project Path="BurmaProjectIdeasYarp/BurmaProjectIdeasYarp.csproj" />
 </Solution>

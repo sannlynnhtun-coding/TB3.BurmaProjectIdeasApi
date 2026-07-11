@@ -32,7 +32,8 @@ namespace BurmaProjectIdeasYarp.Services
             { "lat_htauk_bay_din", "api-lat-htauk-bay-din-routes.json" },
             { "myanmar_proverbs", "api-myanmar-proverbs-routes.json" },
             { "pick_a_pile", "api-pick-a-pile-routes.json" },
-            { "phayar_sar", "api-phayar-sar-routes.json" }
+            { "phayar_sar", "api-phayar-sar-routes.json" },
+            { "zodiac", "api-zodiac-routes.json" }
         };
         
         // Event to notify when config changes
