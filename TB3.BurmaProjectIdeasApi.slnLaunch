@@ -8,9 +8,8 @@
         "DebugTarget": "https"
       },
       {
-        "Path": "LatHtaukBayDin\\LatHtaukBayDin.Api\\LatHtaukBayDin.Api.csproj",
-        "Action": "Start",
-        "DebugTarget": "https"
+        "Path": "MyanmarProverbs\\MyanmarProverbs.Api\\MyanmarProverbs.Api.csproj",
+        "Action": "Start"
       }
     ]
   }

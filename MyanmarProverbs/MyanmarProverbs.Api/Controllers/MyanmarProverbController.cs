@@ -38,7 +38,7 @@ namespace MyanmarProverbs.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("by-title/{titleId}")]
+        [HttpGet("{titleId}")]
         public IActionResult GetProverbsByTitleId(int titleId)
         {
             var result = _proverbService.GetProverbsByTitleId(titleId);

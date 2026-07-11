@@ -12,7 +12,8 @@
     "bagan_map" :  true,
     "art_gallery": true,
     "dream_dictionary": true,
-    "lat_htauk_bay_din": true
+    "lat_htauk_bay_din": true,
+    "myanmar_proverbs" : true
   }
 }
 

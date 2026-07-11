@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "myanmar_proverbs_route": {
+        "ClusterId": "myanmar_proverbs_cluster",
+        "Match": {
+          "Path": "/api/myanmar-proverbs/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/MyanmarProverbs/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "myanmar_proverbs_cluster": {
+        "Destinations": {
+          "myanmar_proverbs_destination": {
+            "Address": "http://localhost:5260/"
+          }
+        }
+      }
+    }
+  }
+}
