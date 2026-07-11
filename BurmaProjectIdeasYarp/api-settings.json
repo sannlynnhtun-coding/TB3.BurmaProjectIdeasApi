@@ -10,7 +10,8 @@
     "missing_historical_records": true,
     "quotlets": true,
     "bagan_map" :  true,
-    "art_gallery": true
+    "art_gallery": true,
+    "dream_dictionary": true
   }
 }
 

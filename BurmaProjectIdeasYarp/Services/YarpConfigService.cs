@@ -26,8 +26,9 @@ namespace BurmaProjectIdeasYarp.Services
             { "incompatible_food", "api-incompatible-food-routes.json" },
             { "missing_historical_records", "api-missing-historical-records-routes.json" },
             { "quotlets", "api-quotlets-routes.json" },
-            { "bagan-map", "api-bagan-map-routes.json" },
-            { "art_gallery", "api-art-gallery-routes.json" }
+            { "bagan_map", "api-bagan-map-routes.json" },
+            { "art_gallery", "api-art-gallery-routes.json" },
+            { "dream_dictionary", "api-dream-dictionary-routes.json" }
         };
         
         // Event to notify when config changes

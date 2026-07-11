@@ -3,12 +3,12 @@
     "Name": "YARP",
     "Projects": [
       {
-        "Path": "ArtGallery\\ArtGallery.Api\\ArtGallery.Api.csproj",
+        "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       },
       {
-        "Path": "BurmaProjectIdeasYarp\\BurmaProjectIdeasYarp.csproj",
+        "Path": "DreamDictionary\\DreamDictionary.Api\\DreamDictionary.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       }

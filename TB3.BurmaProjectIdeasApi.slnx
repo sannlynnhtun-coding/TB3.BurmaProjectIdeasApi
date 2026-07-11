@@ -17,6 +17,9 @@
   <Folder Name="/BurmeseRecipes/">
     <Project Path="BurmeseRecipes/BurmeseRecipes.Api/BurmeseRecipes.Api.csproj" />
   </Folder>
+  <Folder Name="/DreamDictionary/">
+    <Project Path="DreamDictionary/DreamDictionary.Api/DreamDictionary.Api.csproj" Id="dabdcd10-4541-4d22-a908-22ca949da828" />
+  </Folder>
   <Folder Name="/IncompatibleFood/">
     <Project Path="IncompatibleFood/IncompatibleFood.Api/IncompatibleFood.Api.csproj" Id="920910a5-91e3-468c-b5dc-2a3a54c06aaf" />
   </Folder>
