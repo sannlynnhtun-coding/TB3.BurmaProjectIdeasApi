@@ -8,7 +8,7 @@
         "DebugTarget": "https"
       },
       {
-        "Path": "DreamDictionary\\DreamDictionary.Api\\DreamDictionary.Api.csproj",
+        "Path": "LatHtaukBayDin\\LatHtaukBayDin.Api\\LatHtaukBayDin.Api.csproj",
         "Action": "Start",
         "DebugTarget": "https"
       }

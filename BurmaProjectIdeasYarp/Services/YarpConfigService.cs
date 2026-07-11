@@ -28,7 +28,8 @@ namespace BurmaProjectIdeasYarp.Services
             { "quotlets", "api-quotlets-routes.json" },
             { "bagan_map", "api-bagan-map-routes.json" },
             { "art_gallery", "api-art-gallery-routes.json" },
-            { "dream_dictionary", "api-dream-dictionary-routes.json" }
+            { "dream_dictionary", "api-dream-dictionary-routes.json" },
+            { "lat_htauk_bay_din", "api-lat-htauk-bay-din-routes.json" }
         };
         
         // Event to notify when config changes

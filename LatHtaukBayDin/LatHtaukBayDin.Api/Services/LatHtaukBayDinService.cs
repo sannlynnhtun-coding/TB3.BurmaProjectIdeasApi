@@ -197,7 +197,7 @@ public class LatHtaukBayDinService : ILatHtaukBayDinService
                 };
             }
 
-            return GetFortune(questionNo, answerNo);
+            return GetAnswer(questionNo, answerNo);
         }
         catch (Exception ex)
         {

@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "lat_htauk_bay_din_route": {
+        "ClusterId": "lat_htauk_bay_din_cluster",
+        "Match": {
+          "Path": "/api/lat-htauk-bay-din/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/LatHtaukBayDin/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "lat_htauk_bay_din_cluster": {
+        "Destinations": {
+          "lat_htauk_bay_din_destination": {
+            "Address": "http://localhost:5183/"
+          }
+        }
+      }
+    }
+  }
+}
