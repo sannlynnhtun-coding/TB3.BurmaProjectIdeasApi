@@ -30,7 +30,8 @@ namespace BurmaProjectIdeasYarp.Services
             { "art_gallery", "api-art-gallery-routes.json" },
             { "dream_dictionary", "api-dream-dictionary-routes.json" },
             { "lat_htauk_bay_din", "api-lat-htauk-bay-din-routes.json" },
-            { "myanmar_proverbs", "api-myanmar-proverbs-routes.json" }
+            { "myanmar_proverbs", "api-myanmar-proverbs-routes.json" },
+            { "pick_a_pile", "api-pick-a-pile-routes.json" }
         };
         
         // Event to notify when config changes

@@ -1,0 +1,26 @@
+{
+  "ReverseProxy": {
+    "Routes": {
+      "pick_a_pile_route": {
+        "ClusterId": "pick_a_pile_cluster",
+        "Match": {
+          "Path": "/api/pick-a-pile/{**catch-all}"
+        },
+        "Transforms": [
+          {
+            "PathPattern": "/api/PickAPile/{**catch-all}"
+          }
+        ]
+      }
+    },
+    "Clusters": {
+      "pick_a_pile_cluster": {
+        "Destinations": {
+          "pick_a_pile_destination": {
+            "Address": "http://localhost:5171/"
+          }
+        }
+      }
+    }
+  }
+}
