@@ -1,0 +1,6 @@
+@MyanmarProverbs.Api_HostAddress = http://localhost:5260
+
+GET {{MyanmarProverbs.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

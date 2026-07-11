@@ -32,6 +32,9 @@
   <Folder Name="/MovieTicketOnlineBookingSystem/">
     <Project Path="MovieTicketOnlineBookingSystem/MovieTicketOnlineBookingSystem.Api/MovieTicketOnlineBookingSystem.Api.csproj" />
   </Folder>
+  <Folder Name="/MyanmarProverbs/">
+    <Project Path="MyanmarProverbs/MyanmarProverbs.Api/MyanmarProverbs.Api.csproj" Id="65f983bb-ecb6-4fef-8f72-f339bf4d8a21" />
+  </Folder>
   <Folder Name="/Quotlets/">
     <Project Path="Quotlets/Quotlets.Api/Quotlets.Api.csproj" Id="f60e0a70-dbff-4f5d-b0c9-5ea4ba0f644c" />
   </Folder>
